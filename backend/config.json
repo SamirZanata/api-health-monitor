@@ -1,0 +1,32 @@
+{
+  "apis": [
+    {
+      "name": "Google",
+      "url": "https://www.google.com",
+      "interval": 30,
+      "timeout": 5,
+      "method": "GET"
+    },
+    {
+      "name": "GitHub API",
+      "url": "https://api.github.com",
+      "interval": 60,
+      "timeout": 10,
+      "method": "GET"
+    },
+    {
+      "name": "Cloudflare DNS",
+      "url": "https://cloudflare-dns.com/dns-query",
+      "interval": 60,
+      "timeout": 10,
+      "method": "GET"
+    },
+    {
+      "name": "JSONPlaceholder",
+      "url": "https://jsonplaceholder.typicode.com/posts/1",
+      "interval": 45,
+      "timeout": 10,
+      "method": "GET"
+    }
+  ]
+}
