@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: monitor-prometheus
+    ports:
+      - "9090:9090"  # Porta do Prometheus UI
+    volumes:
+      - ./prometheus:/etc/prometheus  # Configuração do Prometheus
+      - prometheus-data:/prometheus    # Dados persistentes
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    restart: unless-stopped
+
+volumes:
+  prometheus-data:  # Volume para persistir dados mesmo se container for removido
+

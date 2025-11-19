@@ -1,0 +1,20 @@
+# Configuração do Prometheus
+# Este arquivo define como o Prometheus coleta e armazena métricas
+
+global:
+  scrape_interval: 15s      # A cada 15 segundos, o Prometheus busca métricas
+  evaluation_interval: 15s   # A cada 15 segundos, avalia regras de alerta
+  external_labels:
+    monitor: 'health-check-monitor'
+
+# Configuração de onde o Prometheus vai buscar métricas
+scrape_configs:
+  # Por enquanto, vamos deixar vazio
+  # Mais tarde, nosso backend Go vai expor um endpoint de métricas
+  # e vamos adicionar aqui o endereço desse endpoint
+  - job_name: 'health-check-backend'
+    static_configs:
+      - targets: ['host.docker.internal:8080']  # Nosso backend Go (vamos configurar depois)
+        labels:
+          service: 'health-check-monitor'
+
